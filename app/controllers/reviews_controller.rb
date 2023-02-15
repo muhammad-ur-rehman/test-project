@@ -1,8 +1,20 @@
 class ReviewsController < ApplicationController
+  before_action :set_spot, only: %i[index create]
+
+  def index
+    reviews = @spot.reviews.order('created_at DESC')
+    render json: reviews
+  end
+
   def create
-    review = Review.create(review_param)
+    review = @spot.reviews.create(review_param)
     render json: review
   end
+
+  # def show
+  #   review = Review.find(params[:id])
+  #   render json: review
+  # end
 
   def update
     review = Review.find(params[:id])
@@ -11,6 +23,13 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+  def set_spot
+    @spot = Spot.find(params[:spot_id])
+
+    p "*"*1000
+    p @spot
+  end
 
   def review_param
     params.require(:review).permit(:description)

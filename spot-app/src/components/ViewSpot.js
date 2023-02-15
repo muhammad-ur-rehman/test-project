@@ -1,16 +1,28 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 export const ViewSpot = () => {
   const [spot, setSpot] = useState("");
+  const [inputValue, setInputValue] = useState("");
+  const [reviews, setReviews] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (spot === "") setSpot(location.state.spot);
+    getReviews(location.state.spot.id);
   }, [spot, location]);
+
+  const getReviews = (id) => {
+    axios
+      .get(`/api/v1/spots/${id}/reviews`)
+      .then((response) => {
+        setReviews(response.data);
+      })
+      .catch((error) => console.log(error));
+  };
 
   const deleteSpot = (id) => {
     axios
@@ -24,6 +36,24 @@ export const ViewSpot = () => {
 
   const editSpot = (spot) => {
     navigate(`/EditSpot/${spot.id}`, { state: { spot: spot } });
+  };
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const createReview = (e) => {
+    if (e.key === "Enter") {
+      axios
+        .post(`/api/v1/spots/${spot.id}/reviews`, {
+          review: { description: e.target.value },
+        })
+        .then((response) => {
+          getReviews(location.state.spot.id);
+          setInputValue("");
+        })
+        .catch((error) => console.log(error));
+    }
   };
 
   return (
@@ -60,6 +90,33 @@ export const ViewSpot = () => {
           <p>
             <b>${spot.price || "0.0"} </b>/ hour
           </p>
+          <br></br>
+
+          <h2>Reviews</h2>
+          <div>
+            {reviews?.map((review) => {
+              return (
+                <Link
+                  to={`/EditReview/${review.id}`}
+                  className="simple-text"
+                  state={{ review, spot }}
+                >
+                  <ul className="task" review={review} key={review?.id}>
+                    <label className="taskLabel">{review?.description}</label>
+                  </ul>
+                </Link>
+              );
+            })}
+          </div>
+          <input
+            className="taskInput"
+            type="text"
+            placeholder="Add a review"
+            maxLength="50"
+            onKeyPress={(e) => createReview(e)}
+            value={inputValue}
+            onChange={(e) => handleChange(e)}
+          />
         </div>
       </div>
     </div>

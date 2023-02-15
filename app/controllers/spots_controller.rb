@@ -1,6 +1,6 @@
 class SpotsController < ApplicationController
   def index
-    spots = Spot.order("created_at DESC")
+    spots = Spot.order('created_at DESC')
     render json: spots
   end
 

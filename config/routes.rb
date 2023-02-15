@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   scope '/api/v1' do
-    resources :spots
-    resources :reviews, only: [:create, :update]
+    resources :spots do
+      resources :reviews, only: %i[index create]
+    end
+    resources :reviews, only: %i[update]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -88,7 +88,7 @@ export const NewSpot = () => {
         </label>
         <br></br>
 
-        {/* <input type="file" name="image" /> */}
+        <input type="file" name="image" />
         <button
           type="button"
           className="button"
