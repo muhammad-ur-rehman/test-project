@@ -4,7 +4,7 @@ import HomePage from "../components/HomePagesContainer";
 import { ViewSpot } from "../components/ViewSpot";
 import { EditSpot } from "../components/EditSpot";
 import { EditReview } from "../components/EditReview";
-import { NewSpot } from "../components/NewSpot";
+import NewSpot from "../components/SpotForm";
 
 export default function Routing() {
   return (

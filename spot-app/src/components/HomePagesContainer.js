@@ -1,3 +1,4 @@
+import NotFound from "../assets/images/not-found.webp";
 import React, { Component } from "react";
 import axios from "axios";
 import update from "immutability-helper";
@@ -71,7 +72,7 @@ class HomePagesContainer extends Component {
   deleteSpot = (id) => {
     axios
       .delete(`/api/v1/spots/${id}`)
-      .then((response) => {
+      .then(() => {
         const todoIndex = this.state.spots.findIndex((x) => x.id === id);
         const spots = update(this.state.spots, {
           $splice: [[todoIndex, 1]],
@@ -101,8 +102,10 @@ class HomePagesContainer extends Component {
               <div className="grid-item" spot={spot} key={spot.id}>
                 <Link to="/viewSpot" className="simple-text" state={{ spot }}>
                   <img
-                    src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGljfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+                    src={spot?.image === null ? NotFound : spot?.image}
                     alt="cover"
+                    width={250}
+                    height={250}
                     className="w-full rounded-lg"
                   />
                   <label className="title">{spot.title}</label>

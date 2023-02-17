@@ -5,6 +5,8 @@ ruby "2.7.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
+gem "cloudinary"
+gem 'active_model_serializers'
 
 gem 'rack-cors', :require => 'rack/cors'
 
@@ -45,6 +47,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'byebug'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end

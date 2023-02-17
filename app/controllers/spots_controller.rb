@@ -16,7 +16,7 @@ class SpotsController < ApplicationController
 
   def update
     spot = Spot.find(params[:id])
-    spot.update(spot_param)
+    spot.update(update_spot_param)
     render json: spot
   end
 
@@ -34,6 +34,10 @@ class SpotsController < ApplicationController
   private
 
   def spot_param
-    params.require(:spot).permit(:title, :description, :price, :image)
+    params.permit(:title, :description, :price, :image)
+  end
+
+  def update_spot_param
+    params.require(:spot).permit(:title, :description, :price)
   end
 end
