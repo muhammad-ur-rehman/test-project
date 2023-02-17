@@ -52,6 +52,10 @@ group :development do
   # gem "spring"
 end
 
+group :production do
+  gem "mini_portile2"
+end
+
 group :test do
   gem 'factory_bot_rails'
   gem 'faker'
