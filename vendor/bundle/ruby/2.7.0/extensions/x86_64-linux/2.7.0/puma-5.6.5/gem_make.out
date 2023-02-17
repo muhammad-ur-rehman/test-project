@@ -1,0 +1,38 @@
+current directory: /home/dev/www/projects/test-project/vendor/bundle/ruby/2.7.0/gems/puma-5.6.5/ext/puma_http11
+/home/dev/.rvm/rubies/ruby-2.7.0/bin/ruby -I /home/dev/.rvm/rubies/ruby-2.7.0/lib/ruby/2.7.0 -r ./siteconf20230218-296730-1xqtjf7.rb extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+checking for DTLS_method() in openssl/ssl.h... no
+checking for TLS_server_method() in openssl/ssl.h... no
+checking for SSL_CTX_set_min_proto_version(NULL, 0) in openssl/ssl.h... no
+checking for X509_STORE_up_ref()... no
+checking for SSL_CTX_set_ecdh_auto(NULL, 0) in openssl/ssl.h... no
+checking for SSL_CTX_set_dh_auto(NULL, 0) in openssl/ssl.h... no
+checking for SSL_get1_peer_certificate() in openssl/ssl.h... no
+checking for Random.bytes... yes
+creating Makefile
+
+current directory: /home/dev/www/projects/test-project/vendor/bundle/ruby/2.7.0/gems/puma-5.6.5/ext/puma_http11
+make "DESTDIR=" clean
+
+current directory: /home/dev/www/projects/test-project/vendor/bundle/ruby/2.7.0/gems/puma-5.6.5/ext/puma_http11
+make "DESTDIR="
+compiling http11_parser.c
+compiling mini_ssl.c
+mini_ssl.c: In function ‘sslctx_initialize’:
+mini_ssl.c:290:32: warning: implicit declaration of function ‘SSL_CTX_get0_param’; did you mean ‘SSL_CTX_set1_param’? [-Wimplicit-function-declaration]
+  290 |     X509_VERIFY_PARAM *param = SSL_CTX_get0_param(ctx);
+      |                                ^~~~~~~~~~~~~~~~~~
+      |                                SSL_CTX_set1_param
+mini_ssl.c:290:32: warning: initialization of ‘X509_VERIFY_PARAM *’ {aka ‘struct X509_VERIFY_PARAM_st *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+mini_ssl.c: At top level:
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
+compiling puma_http11.c
+linking shared-object puma/puma_http11.so
+
+current directory: /home/dev/www/projects/test-project/vendor/bundle/ruby/2.7.0/gems/puma-5.6.5/ext/puma_http11
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20230218-296730-ncuytd/puma

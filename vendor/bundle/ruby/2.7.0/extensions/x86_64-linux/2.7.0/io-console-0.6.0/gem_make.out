@@ -1,0 +1,20 @@
+current directory: /home/dev/www/projects/test-project/vendor/bundle/ruby/2.7.0/gems/io-console-0.6.0/ext/io/console
+/home/dev/.rvm/rubies/ruby-2.7.0/bin/ruby -I /home/dev/.rvm/rubies/ruby-2.7.0/lib/ruby/2.7.0 -r ./siteconf20230218-296730-1izfpaw.rb extconf.rb
+checking for termios.h... yes
+checking for cfmakeraw() in termios.h... yes
+checking for sys/ioctl.h... yes
+checking for HAVE_RUBY_FIBER_SCHEDULER_H... no
+checking for rb_scheduler_timeout()... no
+creating Makefile
+
+current directory: /home/dev/www/projects/test-project/vendor/bundle/ruby/2.7.0/gems/io-console-0.6.0/ext/io/console
+make "DESTDIR=" clean
+
+current directory: /home/dev/www/projects/test-project/vendor/bundle/ruby/2.7.0/gems/io-console-0.6.0/ext/io/console
+make "DESTDIR="
+compiling console.c
+linking shared-object io/console.so
+
+current directory: /home/dev/www/projects/test-project/vendor/bundle/ruby/2.7.0/gems/io-console-0.6.0/ext/io/console
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 console.so ./.gem.20230218-296730-1dd4vy5/io

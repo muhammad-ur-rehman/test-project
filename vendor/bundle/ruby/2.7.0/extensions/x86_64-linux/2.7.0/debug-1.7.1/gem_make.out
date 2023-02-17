@@ -1,0 +1,16 @@
+current directory: /home/dev/www/projects/test-project/vendor/bundle/ruby/2.7.0/gems/debug-1.7.1/ext/debug
+/home/dev/.rvm/rubies/ruby-2.7.0/bin/ruby -I /home/dev/.rvm/rubies/ruby-2.7.0/lib/ruby/2.7.0 -r ./siteconf20230218-296730-xuj2z7.rb extconf.rb
+creating Makefile
+
+current directory: /home/dev/www/projects/test-project/vendor/bundle/ruby/2.7.0/gems/debug-1.7.1/ext/debug
+make "DESTDIR=" clean
+
+current directory: /home/dev/www/projects/test-project/vendor/bundle/ruby/2.7.0/gems/debug-1.7.1/ext/debug
+make "DESTDIR="
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/dev/www/projects/test-project/vendor/bundle/ruby/2.7.0/gems/debug-1.7.1/ext/debug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20230218-296730-1k4z128/debug
