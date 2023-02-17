@@ -82,3 +82,9 @@ To run tests, run the following command
 ```bash
   bundle exec rspec
 ```
+
+The test results are store in the file
+
+```
+  spec/results.txt
+```

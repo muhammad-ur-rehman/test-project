@@ -11,11 +11,6 @@ class ReviewsController < ApplicationController
     render json: review
   end
 
-  # def show
-  #   review = Review.find(params[:id])
-  #   render json: review
-  # end
-
   def update
     review = Review.find(params[:id])
     review.update(review_param)
@@ -26,9 +21,6 @@ class ReviewsController < ApplicationController
 
   def set_spot
     @spot = Spot.find(params[:spot_id])
-
-    p "*"*1000
-    p @spot
   end
 
   def review_param

@@ -7,11 +7,11 @@ RSpec.describe 'Spots', type: :request do
 
       before do
         post '/api/v1/spots', params:
-                          { spot: {
+                          {
                             title: my_spot.title,
                             description: my_spot.description,
                             price: my_spot.price
-                          } }
+                          }
       end
 
       it 'returns the title' do

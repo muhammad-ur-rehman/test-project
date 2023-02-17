@@ -6,7 +6,7 @@ RSpec.describe 'Reviews', type: :request do
       let!(:review) { FactoryBot.create(:review) }
 
       before do
-        post '/api/v1/reviews', params:
+        post "/api/v1/spots/#{review.spot.id}/reviews", params:
                           { review: {
                             description: review.description
                           } }
