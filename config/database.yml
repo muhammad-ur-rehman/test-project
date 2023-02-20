@@ -82,5 +82,3 @@ test:
 production:
   <<: *default
   database: sniff_spot_production
-  username: sniff_spot
-  password: <%= ENV["SNIFF_SPOT_DATABASE_PASSWORD"] %>
